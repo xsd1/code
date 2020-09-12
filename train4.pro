@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2020-09-05T08:52:40
+# Project created by QtCreator 2020-09-11T17:03:02
 #
 #-------------------------------------------------
 
@@ -8,7 +8,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = train1
+TARGET = train4
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -25,13 +25,22 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mywidget.cpp \
-    subwidget.cpp \
-    subwidget1.cpp \
-    subwidget2.cpp
+        widget.cpp \
+    ticketsearch.cpp \
+    ticketbuy.cpp \
+    ticketinfosearch.cpp \
+    returnticket.cpp
 
 HEADERS += \
-        mywidget.h \
-    subwidget.h \
-    subwidget1.h \
-    subwidget2.h
+        widget.h \
+    ticketsearch.h \
+    ticketbuy.h \
+    ticketinfosearch.h \
+    returnticket.h
+
+FORMS += \
+        widget.ui \
+    ticketsearch.ui \
+    ticketbuy.ui \
+    ticketinfosearch.ui \
+    returnticket.ui
