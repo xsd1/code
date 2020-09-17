@@ -2,6 +2,8 @@
 #define WIDGET_H
 
 #include <QWidget>
+#include <QTcpSocket>
+#include <QTcpSocket>
 #include "ticketsearch.h"
 #include "ticketbuy.h"
 #include "ticketinfosearch.h"

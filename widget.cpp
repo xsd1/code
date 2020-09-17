@@ -5,7 +5,9 @@ Widget::Widget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Widget)
 {
+
     ui->setupUi(this);
+    setWindowTitle("火车票在线购票系统");
     connect(&ts,&Ticketsearch::Mysignal_1,this,&Widget::dealSlot_1);
     connect(&tb,&TicketBuy::Mysignal_2,this,&Widget::dealSlot_2);
     connect(&tfs,&Ticketinfosearch::Mysignal_3,this,&dealSlot_3);

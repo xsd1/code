@@ -10,6 +10,7 @@ Ticketinfosearch::Ticketinfosearch(QWidget *parent) :
     ui(new Ui::Ticketinfosearch)
 {
     ui->setupUi(this);
+    setWindowTitle("购票信息查询窗口");
     ui->label_start->hide();
     ui->label_end->hide();
     ui->label_price->hide();
@@ -24,6 +25,10 @@ Ticketinfosearch::~Ticketinfosearch()
 void Ticketinfosearch::sendSlot_3()
 {
     emit Mysignal_3();
+    ui->lineEdit->setText("");
+    ui->label_start->hide();
+    ui->label_end->hide();
+    ui->label_price->hide();
 }
 void Ticketinfosearch::search()
 {
@@ -48,8 +53,8 @@ void Ticketinfosearch::search()
         if(isok == true)
         {
             QTextStream stream(&file);
-            stream >> start >> end >> id >> name >> price;
-            if(str2 == "身份证" && str1 == id)               //比对信息
+            stream >> start >> end >> id >> name>> price;
+            if(str1 == id)               //比对信息
             {
                 ui->label_start->setText(start);
                 ui->label_end->setText(end);

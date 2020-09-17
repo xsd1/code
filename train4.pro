@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -44,3 +44,4 @@ FORMS += \
     ticketbuy.ui \
     ticketinfosearch.ui \
     returnticket.ui
+CONFIG += C++11

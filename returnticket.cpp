@@ -8,7 +8,9 @@ Returnticket::Returnticket(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Returnticket)
 {
+
     ui->setupUi(this);
+    setWindowTitle("退票窗口");
     connect(ui->pushButton_back,&QPushButton::clicked,this,&Returnticket::sendSlot_4);
     connect(ui->pushButton_yes,&QPushButton::clicked,this,&Returnticket::ticketreturn);
 }
@@ -20,11 +22,14 @@ Returnticket::~Returnticket()
 void Returnticket::sendSlot_4()
 {
     emit Mysignal_4();
+    ui->lineEdit->setText("");
+
 }
 void Returnticket::ticketreturn()
 {
     QString str = ui->lineEdit->text();
     QString filename = "passenger.info";
+    int flag = 0;
     QString filename1;
     QFile files("../文件名.txt");
     bool isok = files.open(QIODevice::ReadOnly);
@@ -35,6 +40,7 @@ void Returnticket::ticketreturn()
         files.close();
     }
     else filename1 = filename;
+
     while (filename != filename1)
     {
         filename = filename + '1';
@@ -45,8 +51,12 @@ void Returnticket::ticketreturn()
             QTextStream stream(&file);
             stream >> start >> end >> id;
             file.close();
+            flag = 1;
         }
-        else id = str + '1';
+        else
+        {
+            id = str + '1';
+        }
         if(id == str)
         {
             file.remove("../" + filename + ".txt");
@@ -64,5 +74,6 @@ void Returnticket::ticketreturn()
         }
 
     }
+    if(flag == 0)files.remove("../文件名.txt");
     QMessageBox::about(this,"退票","无该乘客信息");
 }
